@@ -92,6 +92,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function renderBoard() {
+        const boardElement = document.getElementById('sudoku-board');
+        if (!boardElement) return; // Guard clause
         const cells = boardElement.children;
         for (let i = 0; i < 81; i++) {
             const cell = cells[i];

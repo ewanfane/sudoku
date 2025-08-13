@@ -9,14 +9,17 @@
     --user-num-color: #005a9c;
     --note-num-color: #888;
     --error-color: #e53935;
-    --button-bg-color: #f0f0f0;
-    --button-hover-bg-color: #ddd;
+    --button-bg-color: #e9e9e9;
+    --button-text-color: #333;
+    --button-border-color: #ccc;
+    --button-hover-bg-color: #dcdcdc;
+    --button-active-bg-color: #c9c9c9;
     --slider-bg-color: #ccc;
     --slider-checked-bg-color: #2196F3;
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,8 +39,11 @@ body.dark-mode {
     --fixed-num-color: #fff;
     --user-num-color: #87ceeb;
     --note-num-color: #aaa;
-    --button-bg-color: #333;
-    --button-hover-bg-color: #555;
+    --button-bg-color: #3e3e3e;
+    --button-text-color: #eee;
+    --button-border-color: #555;
+    --button-hover-bg-color: #4f4f4f;
+    --button-active-bg-color: #5f5f5f;
     --slider-bg-color: #555;
 }
 
@@ -53,7 +59,7 @@ header {
 
 .controls {
     display: flex;
-    gap: 10px;
+    gap: 15px;
     align-items: center;
 }
 
@@ -142,26 +148,44 @@ header {
     margin-top: 20px;
 }
 
+.btn, .numpad-btn {
+    padding: 10px 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--button-text-color);
+    background-color: var(--button-bg-color);
+    border: 1px solid var(--button-border-color);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.btn:hover, .numpad-btn:hover {
+    background-color: var(--button-hover-bg-color);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+}
+
+.btn:active, .numpad-btn:active {
+    background-color: var(--button-active-bg-color);
+    transform: translateY(1px);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
 .numpad-btn {
     width: 50px;
     height: 50px;
+    font-size: 1.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.5rem;
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: var(--button-bg-color);
-}
-
-.numpad-btn:hover {
-    background-color: var(--button-hover-bg-color);
 }
 
 #notes-btn.active {
     background-color: var(--cell-selected-bg-color);
-    border: 2px solid var(--user-num-color);
+    color: var(--user-num-color);
+    border-color: var(--user-num-color);
+    font-weight: bold;
 }
 
 .theme-switcher {
